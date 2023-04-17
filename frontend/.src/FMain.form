@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,123,96)
+  MoveScaled(0,0,123,92)
   Background = Color.Background
   Utility = True
   { ToggleButton1 ToggleButton
@@ -1160,5 +1160,9 @@
   { Button1 Button
     MoveScaled(105,85,16,4)
     Text = ("send to TV")
+  }
+  { Button2 Button
+    MoveScaled(2,85,16,4)
+    Text = ("clear all")
   }
 }

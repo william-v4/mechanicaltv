@@ -28,3 +28,23 @@ Public Sub Form_Open()
   
 
 End
+
+Public Sub Button2_Click()
+
+  Dim ob As Object
+  Dim writexml As New XmlWriter
+  Dim x As Integer
+  x = 1
+  writexml.Open(Null, True)
+  For Each ob In FMain.Children
+    If ob Is ToggleButton Then
+      ob.value = False
+    Endif
+    writexml.StartElement("pixel", ["number", Str$(x)])
+    writexml.Text(Str$(ob.value))
+    writexml.EndElement()
+    x = x + 1
+  Next
+  File.Save("~/pixels.xml", writexml.EndDocument())
+  
+End
