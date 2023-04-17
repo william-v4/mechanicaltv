@@ -5,16 +5,16 @@ Public Sub Button1_Click()
 
   Dim x As Integer
   Dim ob As Object
-  Dim hfile As File
   x = 1
   Dim writexml As New XmlWriter
-  'hfile = Open "~/Pixels.xml" For Read Write Create
   writexml.Open(Null, True)
   For Each ob In FMain.Children
-    writexml.StartElement(Str$(x))
-    writexml.Text(Str$(ob.value))
-    writexml.EndElement()
-    x = x + 1
+    If ob Is ToggleButton
+      writexml.StartElement(Str$(x))
+      writexml.Text(Str$(ob.value))
+      writexml.EndElement()
+      x = x + 1
+    Endif
   Next
   File.Save("~/pixels.xml", writexml.EndDocument())
 
