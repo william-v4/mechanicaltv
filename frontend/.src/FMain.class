@@ -8,6 +8,7 @@ Public Sub Button1_Click()
   x = 1
   Dim writexml As New XmlWriter
   writexml.Open(Null, True)
+  writexml.StartElement("grid")
   For Each ob In FMain.Children
     If ob Is ToggleButton
       writexml.StartElement(Str$(x))
@@ -16,6 +17,7 @@ Public Sub Button1_Click()
       x = x + 1
     Endif
   Next
+  writexml.EndElement()
   File.Save("~/pixels.xml", writexml.EndDocument())
 
 End
